@@ -10,4 +10,8 @@ Route::get('/welcome', [FormController::class, 'welcome']);
 
 Route::get('/welcome', [FormController::class, 'SignUp']);
 
+Route::get('/master',function(){
+    return view('layout.master');
+});
+
 

@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>REGISTRASI</h1>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Buat Account Baru!</h1>
+@extends('layout.master')
+@section('title')
     <h2>Sign Up Form</h2>
-
+@endsection
+@section('content')
     <form action="/welcome" methode="POST">
         @csrf
         <label for="text" >First Name :</label>
@@ -49,7 +34,4 @@
         <input type="submit" value="SignUp">
 
     </form>
-</body>
-</html>
-</body>
-</html>
+@endsection
