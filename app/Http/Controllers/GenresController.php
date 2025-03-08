@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+use App\Http\Middleware\IsAdmin;
+use App\Models\genres;
 
-class GenresController extends Controller
+class GenresController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            new Middleware(['auth',IsAdmin::class], except: ['index','show']),
+        ];
+    }
     public function create()
     {
         return view('genres.tambah');
@@ -39,7 +49,7 @@ class GenresController extends Controller
 
     public function show($id)
     {
-        $genres=DB::table('genres')->find($id);
+        $genres=genres::find($id);
         return view('genres.detail',['genres'=>$genres]);
     }
 

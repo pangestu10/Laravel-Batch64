@@ -16,10 +16,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table ='users';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -43,5 +45,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'users_id');
     }
 }

@@ -1,10 +1,11 @@
 @extends('layout.master')
 @section('title')
-    Edit Genres
+    Buat Profile
 @endsection
 @section('content')
-    <form action="/genres/{{$genres->id}}" method="POST">
+    <form action="/profile" method="POST">
         @csrf
+    
         <!-- validaation -->
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -15,14 +16,14 @@
             </ul>
         </div>
         @endif
-
+    
         <div class="mb-3">
-            <label class="form-label">Genres Name</label>
-            <input type="text" class="form-control" name='name' value='{{$genres->name}}' >
+            <label class="form-label">Age</label>
+            <input type="number" class="form-control" name='age' >
         </div>
         <div class="mb-3">
-            <label class="form-label">Description</label>
-            <textarea name="description" id="" class='form-control' cols='30' rows='10'>{{$genres->description}}</textarea>
+            <label class="form-label">Address</label>
+            <textarea name="address" id="" class='form-control' cols='30' rows='10'></textarea>
         </div>
         <button type='submit' class='btn btn-primary'>Submit</button>
     </form>
